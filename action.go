@@ -18,6 +18,7 @@ var assetGetAccessTokenEndpoint = "https://%v/v1/asset-management/assets/%v/toke
 var assetAddNewAvatarEndpoint = "https://%v/v1/asset-management/assets"
 
 var trans *http.Transport
+var Debug bool
 
 func init() {
 	trans = &http.Transport{
@@ -25,10 +26,17 @@ func init() {
 	}
 }
 
+func createEndpoint(u string, h string) string {
+	apiUrl := fmt.Sprintf(u, h)
+	if Debug {
+		fmt.Println("api url: " + apiUrl)
+	}
+	return apiUrl
+}
+
 //Login to Lumada
 func Login(req LoginRequest, host string) (*LoginResponse, error) {
-	apiUrl := fmt.Sprintf(loginEndpoint, host)
-	fmt.Println("api url: " + apiUrl)
+	apiUrl := createEndpoint(loginEndpoint, host)
 
 	form := url.Values{}
 	form.Add("grant_type", "password")
