@@ -36,6 +36,7 @@ func Login(req LoginRequest, host string) (*LoginResponse, error) {
 	form.Add("scope", "all")
 	form.Add("username", req.Username)
 	form.Add("password", req.Password)
+	form.Add("Realm", "local")
 
 	client := &http.Client{Transport: trans}
 	r, _ := http.NewRequest("POST", apiUrl, strings.NewReader(form.Encode()))
