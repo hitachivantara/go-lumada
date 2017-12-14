@@ -1,11 +1,12 @@
 package lumada
 
 type LoginRequest struct {
-	GtantType string
+	GrantType string
 	ClientId  string
 	Username  string
 	Password  string
-	scope     string
+	Scope     string
+	Realm     string
 }
 
 type LoginResponse struct {
