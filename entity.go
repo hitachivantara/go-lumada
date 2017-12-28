@@ -30,6 +30,20 @@ type LoginResponseEntity struct {
 	EntityValue          string   `json:"entityValue"`
 }
 
+type CreateDataSinkRequest struct {
+	Name           string `json:"name"`
+	Schema         string `json:"schema"`
+	Qos            string `json:"Qos"`
+	ValidationType string `json:"validationType"`
+}
+
+type CreateDataSinkResponse struct {
+	Id             string `json:"name"`
+	Name           string `json:"name"`
+	Qos            string `json:"Qos"`
+	ValidationType string `json:"validationType"`
+}
+
 type Asset struct {
 	Id          string            `json:"id"`
 	Version     int               `json:"version"`
